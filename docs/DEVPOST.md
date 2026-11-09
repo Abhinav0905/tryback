@@ -11,7 +11,7 @@
 
 **Track:** Try-On Commerce
 
-**Links:** demo video https://youtu.be/HeTgeFe10kw · live demo https://tryback-s2uz.onrender.com · repo https://github.com/Abhinav0905/tryback
+**Links:** demo video https://youtu.be/SXtSh-q9L4M · live demo https://tryback-s2uz.onrender.com · repo https://github.com/Abhinav0905/tryback
 
 ---
 
