@@ -11,8 +11,8 @@ Size returns don't need AI at all. The returned garment's known length works as 
 Built for **HackTheFashion Global'26**, track **Try-On Commerce**.
 Demo brand: **Fernweave**, a fictional DTC label we invented for this project. Its catalogue, size charts, customers and orders are all made up.
 
-- Demo video: [link] (filmed by `npm run record`; see [Demo video](#demo-video))
-- Live demo: [URL] (see [Testing access for judges](#testing-access-for-judges))
+- Demo video: https://youtu.be/HeTgeFe10kw (filmed by `npm run record`; see [Demo video](#demo-video))
+- Live demo: https://tryback-abhinav.fly.dev (see [Testing access for judges](#testing-access-for-judges))
 - Devpost: [link] · draft in [`docs/DEVPOST.md`](docs/DEVPOST.md)
 - Going live, step by step: [Going live checklist](#going-live-checklist)
 - Deployment: [`docs/DEPLOY.md`](docs/DEPLOY.md) · gate tuning: [`docs/GATE-TUNING.md`](docs/GATE-TUNING.md) · Clothsy API behaviours and evidence: [`docs/CLOTHSY-NOTES.md`](docs/CLOTHSY-NOTES.md) · video beats: [`docs/DEMO-SCRIPT.md`](docs/DEMO-SCRIPT.md)

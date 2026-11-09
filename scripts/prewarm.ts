@@ -136,7 +136,7 @@ async function main(): Promise<number> {
     for (const j of jobs) {
       console.log(
         `  ${j.skuId.padEnd(24)} ${j.phase.padEnd(15)} ${j.status.padEnd(8)} ${(j.provider ?? "").padEnd(8)} ` +
-          `${j.fromCache ? "cache" : j.creditCharged ? "1 credit" : "free replay"} · gate ${j.gate?.verdict ?? "—"}`,
+          `${j.provider === "dev" ? "simulated" : j.fromCache ? "cache" : j.creditCharged ? "1 credit" : "free replay"} · gate ${j.gate?.verdict ?? "—"}`,
       );
     }
     const charged = jobs.filter((j) => j.creditCharged).length;

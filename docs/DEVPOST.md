@@ -11,7 +11,7 @@
 
 **Track:** Try-On Commerce
 
-**Links:** demo video [link] · live demo [URL] · repo [link]
+**Links:** demo video https://youtu.be/HeTgeFe10kw · live demo https://tryback-abhinav.fly.dev · repo https://github.com/Abhinav0905/tryback
 
 ---
 
@@ -151,14 +151,14 @@ Fill these from our own runs only. Turn off seeded history on the dashboard firs
 - Photos are deleted within 24 hours of upload and previews within 14 days, by an hourly sweep that deletes anything due before the next sweep, as the consent text says.
 - No skin-tone or body judgements, in copy, prompts, diagnosis or quality badges.
 - Every real render is labelled "AI-generated preview", and simulated ones "Simulated preview".
-- Fernweave is a fictional brand. All people in our demo are consenting adult team members.
+- Fernweave is a fictional brand. The shoppers in our demo, video and probe are AI-generated people, never real customers, and are labelled as such.
 
 ## Testing instructions for judges
 
-The deployment runs in **replay mode**: zero credits. Renders cached during our runs replay, and anything new falls back to a clearly labelled simulated preview. "Reset demo" only clears the returns your own browser created. [If live access is enabled, the deployment runs with `TRYON_MODE=auto` + `LIVE_ACCESS_CODE` instead (replay mode ignores the unlock): on the landing page, click "Have a judge access code? Unlock live try-on" and enter `[code]`. The README's "Testing access for judges" section has the same step as a console snippet.]
+The deployment runs with `TRYON_MODE=auto` and a judge access code. Without the code, renders cached during our runs replay and anything new falls back to a clearly labelled simulated preview (zero credits). With the code, new photos get live Clothsy renders, capped per day by our remaining credits: on the landing page, click "Have a judge access code? Unlock live try-on" and enter `[code]`. "Reset demo" only clears the returns your own browser created.
 
-1. Open `[URL]/demo`.
-2. In the phone frame, start a return with the **1042** quick-fill (email `demo`), pick the Wrap Dress, then **Style or colour didn't work**. Accept the consent, upload a full-body photo, choose a chip or two, and watch the cards arrive. [To see our cached AI renders: download the team member's photo at [link] (shared with their permission), upload that file, pick exactly **Colour isn't me** and **Too clingy**, and leave the note empty.]
+1. Open https://tryback-abhinav.fly.dev/demo.
+2. In the phone frame, start a return with the **1042** quick-fill (email `demo`), pick the Wrap Dress, then **Style or colour didn't work**. Accept the consent, upload a full-body photo, choose a chip or two, and watch the cards arrive. To see our cached AI renders without the code: download https://tryback-abhinav.fly.dev/judge-photo.jpg (an AI-generated shopper, not a real person), upload that exact file, pick exactly **Colour isn't me** and **Too clingy**, and type the note *Love the wrap shape, just wanted a softer colour.* Three or four cards replay real Clothsy renders; the ranking also uses on-device measurements, so a card can occasionally differ and then shows a labelled simulated preview.
 3. Try **Fit or size** on order **1043** (Linen Shirt → *Too short*) to see the zero-credit size lines.
 4. Visit `/merchant` and `/bench`.
 
