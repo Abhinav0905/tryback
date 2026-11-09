@@ -39,13 +39,15 @@ RUN mkdir -p /out/.next/static /out/public \
  && cp -R .next/standalone/. /out/ \
  && cp -R .next/static/. /out/.next/static/ \
  && cp -R public/. /out/public/ \
+ && mkdir -p /out/seed && cp -R seed/. /out/seed/ \
  && cp scripts/docker-entrypoint.sh /out/docker-entrypoint.sh \
  && chmod 755 /out/docker-entrypoint.sh \
  && rm -f /out/.env /out/.env.production \
  && test -f /out/server.js \
  && test -d /out/node_modules/sharp \
  && test ! -e /out/public/public \
- && test -f /out/public/mediapipe/vision_wasm_internal.wasm
+ && test -f /out/public/mediapipe/vision_wasm_internal.wasm \
+ && test -f /out/seed/render-cache/index.json
 
 # ── 3. Runtime ──
 FROM ${NODE_IMAGE} AS runner

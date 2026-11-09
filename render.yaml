@@ -1,20 +1,25 @@
-# Render Blueprint: one Docker web service with a persistent disk at /data (docs/DEPLOY.md).
-# A persistent disk needs a paid instance type and pins the service to ONE instance, which is
-# what TryBack needs (JSON store + render cache on local disk, renders finish in after()).
+# Render Blueprint: one Docker web service on Render's FREE plan (no card needed) (docs/DEPLOY.md).
+#
+# The free plan has no persistent disk: the JSON store, photos and render cache live on an
+# ephemeral disk that is wiped when the service spins down (15 min without traffic) or redeploys.
+# That is acceptable for a demo: returns are short-lived anyway, and the judges' pre-warmed Clothsy
+# renders are baked into the image (seed/render-cache) and restored on every start (lib/seedCache.ts).
+# Cold start after a spin-down takes about a minute.
+#
+# For a persistent setup instead: plan: starter (paid) plus
+#   disk: { name: tryback-data, mountPath: /data, sizeGB: 1 }
+#
 # Secrets marked `sync: false` are asked for in the dashboard when the Blueprint is applied.
 services:
   - type: web
     name: tryback
     runtime: docker
     dockerfilePath: ./Dockerfile
-    plan: starter
+    plan: free
     region: singapore
     numInstances: 1
     healthCheckPath: /api/status
-    disk:
-      name: tryback-data
-      mountPath: /data
-      sizeGB: 1
+    autoDeploy: true
     envVars:
       - key: NODE_ENV
         value: production
@@ -22,8 +27,8 @@ services:
         value: /data
       - key: TRYON_MODE
         value: auto
-      # Live renders per UTC day. Keep it at or below the credits you have left (npm run doctor);
-      # 5 covers the judges' pre-warm (README → Credit budget plan).
+      # Live renders per UTC day (the counter also resets when the ephemeral disk is wiped, so the
+      # Clothsy account balance is the real ceiling). Keep it at or below the credits you have left.
       - key: DAILY_LIVE_RENDER_CAP
         value: "5"
       - key: MAX_RENDERS_PER_RETURN
@@ -37,6 +42,4 @@ services:
       - key: LIVE_ACCESS_CODE
         sync: false
       - key: ADMIN_TOKEN
-        sync: false
-      - key: ANTHROPIC_API_KEY
         sync: false

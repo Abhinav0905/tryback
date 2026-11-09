@@ -117,20 +117,20 @@ Secrets are runtime-only. `.dockerignore` keeps every `.env*` file out of the bu
 
 Later changes: `fly deploy` after code changes; `fly secrets set ...` after secret changes (this restarts the machine); edit `[env]` in `fly.toml` and `fly deploy` for non-secret settings such as `TRYON_MODE`.
 
-## 4. Render (alternative)
+## 4. Render (free plan, no card)
 
-`render.yaml` is a Blueprint for one Docker web service on the **Starter** plan with a 1 GB persistent disk at `/data` and a health check on `/api/status`. Persistent disks need a paid instance, and a service with a disk always runs as a single instance, which is what TryBack needs. Render has no India region; `singapore` is the closest.
+`render.yaml` is a Blueprint for one Docker web service on Render's **free** plan in `singapore` (the closest region to India), with a health check on `/api/status` and auto-deploy on every push to `main`. The free plan needs no payment method, but it has **no persistent disk**: the JSON store, photos and render cache are wiped whenever the service spins down (after 15 minutes without traffic) or redeploys, and a cold start takes about a minute. TryBack copes with that:
 
-1. Push the repo to GitHub (a private repo is fine). Never commit `.env*`, `.data/` or `probe/` (all gitignored).
-2. In the Render dashboard, go to **New → Blueprint**, pick the repo, and Render reads `render.yaml`.
-3. Fill in the secret variables it asks for (`CLOTHSY_API_KEY`, `LIVE_ACCESS_CODE`, `ADMIN_TOKEN`, optionally `ANTHROPIC_API_KEY`), then **Apply**. `DAILY_LIVE_RENDER_CAP` comes from `render.yaml` (**5**); change it in the dashboard to at most the credits you have left (`npm run doctor` shows the balance).
-4. When the deploy is live, run `npm run smoke -- --base https://<service>.onrender.com`.
+- The judges' pre-warmed Clothsy renders are committed in `seed/render-cache/` (5 renders of the AI-generated shopper in `public/judge-photo.jpg`), baked into the image, and restored and pinned on every start (`lib/seedCache.ts`; the boot log says `seed renders: 5 available`).
+- Returns, photos and the daily live-render counter start fresh after each spin-down. The Clothsy account balance is the real ceiling on credits.
 
-Notes:
+Steps:
 
-- With a disk, each deploy has a short downtime (no zero-downtime deploys).
-- Render sets `PORT` itself; the server honours it.
-- Render also keeps disk snapshots. The same retention caveat as Fly applies.
+1. In the Render dashboard, go to **New → Blueprint**, connect GitHub if asked, and pick the repo. Render reads `render.yaml`.
+2. Fill in the secret variables it asks for (`CLOTHSY_API_KEY` from `.env.local`; `LIVE_ACCESS_CODE` and `ADMIN_TOKEN` from `.env.deploy.local`), then **Apply**.
+3. When the deploy is live, run `npm run smoke -- --base https://<service>.onrender.com --admin-token <token>`.
+
+For a persistent setup, switch to `plan: starter` (paid) and add `disk: { name: tryback-data, mountPath: /data, sizeGB: 1 }`; a service with a disk always runs as one instance, which is what TryBack needs.
 
 ## 5. Any VPS with Docker (alternative)
 

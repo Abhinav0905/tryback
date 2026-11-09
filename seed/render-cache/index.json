@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "note": "Pre-warmed judge renders: AI-generated shopper (public/judge-photo.jpg), order 1042, chips 'Colour isn't me' + 'Too clingy', note 'Love the wrap shape, just wanted a softer colour.'",
+  "renders": {
+    "d192054a7db16cacb5fcba64d8d28a1ee7fb2088": {
+      "provider": "clothsy",
+      "latencyMs": 18212,
+      "createdAt": "2026-11-09T21:32:55.339Z",
+      "contentType": "image/jpeg",
+      "externalId": "0776ab36-456b-4fc1-908c-0b5da2b3e787"
+    },
+    "80a4eb093df1a890bf9daeeb5e45e2d47ed43dfd": {
+      "provider": "clothsy",
+      "latencyMs": 18744,
+      "createdAt": "2026-11-09T21:32:55.661Z",
+      "contentType": "image/jpeg",
+      "externalId": "b1e1c3f6-1158-4eae-99ff-0125a62a5a62"
+    },
+    "8aebb051e85d67a1a81d88bbbe847264ff3137ad": {
+      "provider": "clothsy",
+      "latencyMs": 18305,
+      "createdAt": "2026-11-09T21:33:12.877Z",
+      "contentType": "image/jpeg",
+      "externalId": "a0396139-4bdc-470a-827e-fe71997ca9cd"
+    },
+    "a5d655f5ae4e62ce53063511076cd56006cd9f94": {
+      "provider": "clothsy",
+      "latencyMs": 18344,
+      "createdAt": "2026-11-09T21:33:12.919Z",
+      "contentType": "image/jpeg",
+      "externalId": "5cd32999-bcde-485c-b589-c142fe0fe40d"
+    },
+    "6e15471fdd4dfb76296ee531d1663e9234f6224f": {
+      "provider": "clothsy",
+      "latencyMs": 16613,
+      "createdAt": "2026-11-09T21:33:29.920Z",
+      "contentType": "image/jpeg",
+      "externalId": "5d181239-a87b-4ce3-8450-0c1d291025f7"
+    }
+  }
+}

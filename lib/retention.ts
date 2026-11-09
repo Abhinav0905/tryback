@@ -157,6 +157,23 @@ export function pinReturnRenders(returnId: string, note?: string): Promise<{ pin
   });
 }
 
+/** Pin specific render cache keys (e.g. seeded judge renders). Returns how many pins were added. */
+export function pinRenderKeys(keys: string[], note?: string): Promise<number> {
+  return serialize(async () => {
+    if (keys.length === 0) return 0;
+    const pins = await readPins();
+    const at = new Date().toISOString();
+    let added = 0;
+    for (const k of keys) {
+      if (pins[k]) continue;
+      pins[k] = { pinnedAt: at, returnId: null, ...(note ? { note: note.slice(0, 200) } : {}) };
+      added += 1;
+    }
+    if (added) await writePins(pins);
+    return added;
+  });
+}
+
 /** Remove the pins made for a return (or every pin with `all`); the next sweep applies the normal rule. */
 export function unpinRenders(opts: { returnId: string } | { all: true }): Promise<{ unpinned: number; totalPins: number }> {
   return serialize(async () => {

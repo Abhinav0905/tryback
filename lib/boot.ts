@@ -6,6 +6,7 @@ import { config, PROMISED_PHOTO_RETENTION_HOURS, PROMISED_RENDER_RETENTION_DAYS 
 import { publicLiveAllowed } from "./live";
 import { CLIENT_IP_SOURCES, clientIpSource } from "./ratelimit";
 import { startRetentionSweeper } from "./retention";
+import { restoreSeedRenders, SEED_DIR } from "./seedCache";
 import { DATA_DIR } from "./store";
 
 /** Human-readable warnings about the current configuration (empty when all is well). */
@@ -60,5 +61,13 @@ export async function bootNodeServer(): Promise<void> {
     console.warn(`[tryback] data dir ${DATA_DIR} is not writable: ${err instanceof Error ? err.message : String(err)}`);
   }
   for (const w of configWarnings()) console.warn(`[tryback] ${w}`);
+  // Judge renders baked into the image (seed/render-cache): restored on every start, so an
+  // ephemeral disk (Render free) still replays them. A no-op once they are in place.
+  try {
+    const seed = await restoreSeedRenders();
+    if (seed.total) console.log(`[tryback] seed renders: ${seed.total} available (${seed.copied} restored from ${SEED_DIR})`);
+  } catch (err) {
+    console.warn(`[tryback] seed renders not restored: ${err instanceof Error ? err.message : String(err)}`);
+  }
   startRetentionSweeper();
 }
