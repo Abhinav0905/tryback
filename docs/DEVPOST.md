@@ -11,7 +11,7 @@
 
 **Track:** Try-On Commerce
 
-**Links:** demo video https://youtu.be/HeTgeFe10kw · live demo https://tryback-abhinav.fly.dev · repo https://github.com/Abhinav0905/tryback
+**Links:** demo video https://youtu.be/HeTgeFe10kw · live demo https://tryback-s2uz.onrender.com · repo https://github.com/Abhinav0905/tryback
 
 ---
 
@@ -155,8 +155,8 @@ From our own runs only (seeded demo history excluded).
 
 The deployment runs with `TRYON_MODE=auto` and a judge access code. Without the code, renders cached during our runs replay and anything new falls back to a clearly labelled simulated preview (zero credits). With the code, new photos get live Clothsy renders, capped per day by our remaining credits: on the landing page, click "Have a judge access code? Unlock live try-on" and enter `[code]`. "Reset demo" only clears the returns your own browser created.
 
-1. Open https://tryback-abhinav.fly.dev/demo.
-2. In the phone frame, start a return with the **1042** quick-fill (email `demo`), pick the Wrap Dress, then **Style or colour didn't work**. Accept the consent, upload a full-body photo, choose a chip or two, and watch the cards arrive. To see our cached AI renders without the code: download https://tryback-abhinav.fly.dev/judge-photo.jpg (an AI-generated shopper, not a real person), upload that exact file, pick exactly **Colour isn't me** and **Too clingy**, and type the note *Love the wrap shape, just wanted a softer colour.* Three or four cards replay real Clothsy renders; the ranking also uses on-device measurements, so a card can occasionally differ and then shows a labelled simulated preview.
+1. Open https://tryback-s2uz.onrender.com/demo. It runs on Render's free plan: if nobody has visited for 15 minutes, the first load takes about a minute while it wakes up.
+2. In the phone frame, start a return with the **1042** quick-fill (email `demo`), pick the Wrap Dress, then **Style or colour didn't work**. Accept the consent, upload a full-body photo, choose a chip or two, and watch the cards arrive. To see our cached AI renders without the code: download https://tryback-s2uz.onrender.com/judge-photo.jpg (an AI-generated shopper, not a real person), upload that exact file, pick exactly **Colour isn't me** and **Too clingy**, and type the note *Love the wrap shape, just wanted a softer colour.* Three or four cards replay real Clothsy renders; the ranking also uses on-device measurements, so a card can occasionally differ and then shows a labelled simulated preview.
 3. Try **Fit or size** on order **1043** (Linen Shirt → *Too short*) to see the zero-credit size lines.
 4. Visit `/merchant` and `/bench`.
 
