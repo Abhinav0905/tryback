@@ -14,8 +14,8 @@ Nothing here has been deployed yet: no account, app or volume exists. Every step
 
 1. [Before you deploy](#1-before-you-deploy)
 2. [Environment variables](#2-environment-variables)
-3. [Fly.io (recommended)](#3-flyio-recommended)
-4. [Render (alternative)](#4-render-alternative)
+3. [Fly.io (alternative; needs a card after the 7-day trial)](#3-flyio-alternative-needs-a-card-after-the-7-day-trial)
+4. [Render (free plan, no card; hosts the live demo)](#4-render-free-plan-no-card-hosts-the-live-demo)
 5. [Any VPS with Docker (alternative)](#5-any-vps-with-docker-alternative)
 6. [Post-deploy check](#6-post-deploy-check)
 7. [Judges: replay link or code-gated live renders](#7-judges-replay-link-or-code-gated-live-renders)
@@ -58,7 +58,7 @@ Nothing here has been deployed yet: no account, app or volume exists. Every step
 
 Secrets are runtime-only. `.dockerignore` keeps every `.env*` file out of the build context, and nothing secret is baked into the image.
 
-## 3. Fly.io (recommended)
+## 3. Fly.io (alternative; needs a card after the 7-day trial)
 
 `fly.toml` sets up one always-on `shared-cpu-1x` machine with 1 GB of RAM in Singapore (`sin`, the closest Fly region to India now that Mumbai is gone), a volume mounted at `/data`, forced HTTPS, a health check on `/api/status`, `auto_stop_machines = "off"`, `min_machines_running = 1`, and a 120 s `kill_timeout` so in-flight renders can finish on deploys.
 
@@ -117,7 +117,7 @@ Secrets are runtime-only. `.dockerignore` keeps every `.env*` file out of the bu
 
 Later changes: `fly deploy` after code changes; `fly secrets set ...` after secret changes (this restarts the machine); edit `[env]` in `fly.toml` and `fly deploy` for non-secret settings such as `TRYON_MODE`.
 
-## 4. Render (free plan, no card)
+## 4. Render (free plan, no card; hosts the live demo)
 
 `render.yaml` is a Blueprint for one Docker web service on Render's **free** plan in `singapore` (the closest region to India), with a health check on `/api/status` and auto-deploy on every push to `main`. The free plan needs no payment method, but it has **no persistent disk**: the JSON store, photos and render cache are wiped whenever the service spins down (after 15 minutes without traffic) or redeploys, and a cold start takes about a minute. TryBack copes with that:
 

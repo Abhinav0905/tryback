@@ -7,7 +7,7 @@
 #   fly secrets set CLOTHSY_API_KEY=... LIVE_ACCESS_CODE=... ADMIN_TOKEN=...
 #   fly deploy
 
-app = "tryback-abhinav"
+app = "tryback-CHANGE-ME"
 primary_region = "sin"
 # Let in-flight requests and background renders finish on deploys/restarts (a render can
 # take up to 150 s; anything cut off is marked failed and replays from cache next time).

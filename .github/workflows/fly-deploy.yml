@@ -1,6 +1,6 @@
 # Deploy to Fly.io from GitHub's network (the image is built on Fly's remote builder).
 # Needs the repository secret FLY_API_TOKEN, a deploy token scoped to the app:
-#   fly tokens create deploy --app tryback-abhinav --name github-actions --expiry 2160h \
+#   fly tokens create deploy --app <your-fly-app> --name github-actions --expiry 2160h \
 #     | gh secret set FLY_API_TOKEN --repo Abhinav0905/tryback
 # Manual only (Actions → Deploy to Fly.io → Run workflow).
 name: Deploy to Fly.io
