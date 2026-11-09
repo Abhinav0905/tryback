@@ -1,0 +1,36 @@
+# Deploy to Fly.io from GitHub's network (the image is built on Fly's remote builder).
+# Needs the repository secret FLY_API_TOKEN, a deploy token scoped to the app:
+#   fly tokens create deploy --app tryback-abhinav --name github-actions --expiry 2160h \
+#     | gh secret set FLY_API_TOKEN --repo Abhinav0905/tryback
+# Runs on every push to main and on demand (Actions → Deploy to Fly.io → Run workflow).
+name: Deploy to Fly.io
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: fly-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+    steps:
+      - name: Skip when the deploy token isn't configured (forks, first push)
+        if: env.FLY_API_TOKEN == ''
+        run: echo "::notice::FLY_API_TOKEN is not set; skipping the deploy."
+      - uses: actions/checkout@v4
+        if: env.FLY_API_TOKEN != ''
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+        if: env.FLY_API_TOKEN != ''
+      - name: Deploy
+        if: env.FLY_API_TOKEN != ''
+        run: flyctl deploy --remote-only --ha=false

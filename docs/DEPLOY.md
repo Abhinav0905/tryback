@@ -60,7 +60,7 @@ Secrets are runtime-only. `.dockerignore` keeps every `.env*` file out of the bu
 
 ## 3. Fly.io (recommended)
 
-`fly.toml` sets up one always-on `shared-cpu-1x` machine with 1 GB of RAM in Mumbai (`bom`), a volume mounted at `/data`, forced HTTPS, a health check on `/api/status`, `auto_stop_machines = "off"`, `min_machines_running = 1`, and a 120 s `kill_timeout` so in-flight renders can finish on deploys.
+`fly.toml` sets up one always-on `shared-cpu-1x` machine with 1 GB of RAM in Singapore (`sin`, the closest Fly region to India now that Mumbai is gone), a volume mounted at `/data`, forced HTTPS, a health check on `/api/status`, `auto_stop_machines = "off"`, `min_machines_running = 1`, and a 120 s `kill_timeout` so in-flight renders can finish on deploys.
 
 1. **Install flyctl and sign in.**
 
@@ -80,7 +80,7 @@ Secrets are runtime-only. `.dockerignore` keeps every `.env*` file out of the bu
 3. **Create the volume.** Use exactly one volume, in the same region as the app.
 
    ```bash
-   fly volumes create tryback_data --size 1 --region bom
+   fly volumes create tryback_data --size 1 --region sin
    ```
 
    Fly warns that one volume means no high availability. That is intended: confirm. Fly also takes scheduled volume snapshots, which hold copies of deleted photos until the snapshots expire. To keep the "deleted after 24 hours" promise tight, set the snapshot retention to its minimum or turn scheduled snapshots off; run `fly volumes create --help` / `fly volumes update --help` for the flags in your flyctl version.
@@ -102,6 +102,8 @@ Secrets are runtime-only. `.dockerignore` keeps every `.env*` file out of the bu
    ```bash
    fly deploy
    ```
+
+   **Behind a corporate proxy?** If `fly deploy` fails with `x509: certificate signed by unknown authority` (Depot builder) or a WebSocket `526` / `unable to upgrade to h2c` (Fly builder), your network is intercepting TLS. Deploy from GitHub's network instead with `.github/workflows/fly-deploy.yml`: store a deploy token once with `fly tokens create deploy --app <app> --name github-actions --expiry 2160h | gh secret set FLY_API_TOKEN --repo <owner>/<repo>`, then push to `main` or run `gh workflow run fly-deploy.yml`.
 
 6. **Check it.**
 

@@ -16,7 +16,8 @@
     "tune": "tsx scripts/tune-gate.ts",
     "record": "tsx scripts/record-demo.ts",
     "smoke": "tsx scripts/smoke.ts",
-    "purge": "tsx scripts/purge.ts"
+    "purge": "tsx scripts/purge.ts",
+    "prewarm": "tsx scripts/prewarm.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.6.0",

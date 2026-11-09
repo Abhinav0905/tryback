@@ -3,12 +3,12 @@
 # in after() callbacks, so the machine must never auto-stop or scale past one.
 #
 #   fly launch --no-deploy --copy-config --name <your-app-name>
-#   fly volumes create tryback_data --size 1 --region bom
+#   fly volumes create tryback_data --size 1 --region sin
 #   fly secrets set CLOTHSY_API_KEY=... LIVE_ACCESS_CODE=... ADMIN_TOKEN=...
 #   fly deploy
 
-app = "tryback-CHANGE-ME"
-primary_region = "bom"
+app = "tryback-abhinav"
+primary_region = "sin"
 # Let in-flight requests and background renders finish on deploys/restarts (a render can
 # take up to 150 s; anything cut off is marked failed and replays from cache next time).
 kill_signal = "SIGTERM"
