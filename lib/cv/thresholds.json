@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "source": "npm run tune on 6 good real render(s) (2026-11-09)",
+  "tunedAt": "2026-11-09T21:30:42.283Z",
+  "gate": {
+    "colourDeltaE": 15.45,
+    "residue": 0.2,
+    "silhouetteIoU": 0.92,
+    "identityDiff": 0.051,
+    "minCoverage": 0.72,
+    "hemErrorCm": 9.6
+  },
+  "gateSevere": {
+    "identityDiff": 0.3,
+    "minCoverage": 0.08
+  },
+  "preflight": {
+    "visibility": 0.5,
+    "headTopMargin": 0.04,
+    "feetBottomMargin": 0.97,
+    "shoulderHipRatio": {
+      "min": 0.9,
+      "max": 2.6
+    },
+    "minShoulderToTorso": 0.45,
+    "maxYawDeg": 35,
+    "minGarmentCoverage": 0.3,
+    "luminance": {
+      "min": 60,
+      "max": 215
+    },
+    "minSharpness": 25,
+    "analysisMaxSide": 512
+  },
+  "tuning": {
+    "report": "probe/tune-report.md",
+    "goodRenders": 6,
+    "labelledBad": 0,
+    "syntheticNegatives": 63,
+    "maxFalseFlag": 0.05,
+    "previous": {
+      "gate": {
+        "colourDeltaE": 12,
+        "residue": 0.2,
+        "silhouetteIoU": 0.92,
+        "identityDiff": 0.15,
+        "minCoverage": 0.25,
+        "hemErrorCm": 6
+      },
+      "gateSevere": {
+        "identityDiff": 0.3,
+        "minCoverage": 0.08
+      }
+    }
+  }
+}

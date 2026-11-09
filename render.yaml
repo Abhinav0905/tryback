@@ -1,0 +1,42 @@
+# Render Blueprint: one Docker web service with a persistent disk at /data (docs/DEPLOY.md).
+# A persistent disk needs a paid instance type and pins the service to ONE instance, which is
+# what TryBack needs (JSON store + render cache on local disk, renders finish in after()).
+# Secrets marked `sync: false` are asked for in the dashboard when the Blueprint is applied.
+services:
+  - type: web
+    name: tryback
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    region: singapore
+    numInstances: 1
+    healthCheckPath: /api/status
+    disk:
+      name: tryback-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TRYBACK_DATA_DIR
+        value: /data
+      - key: TRYON_MODE
+        value: auto
+      # Live renders per UTC day. Keep it at or below the credits you have left (npm run doctor);
+      # 5 covers the judges' pre-warm (README → Credit budget plan).
+      - key: DAILY_LIVE_RENDER_CAP
+        value: "5"
+      - key: MAX_RENDERS_PER_RETURN
+        value: "5"
+      - key: PHOTO_RETENTION_HOURS
+        value: "24"
+      - key: RENDER_RETENTION_DAYS
+        value: "14"
+      - key: CLOTHSY_API_KEY
+        sync: false
+      - key: LIVE_ACCESS_CODE
+        sync: false
+      - key: ADMIN_TOKEN
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false

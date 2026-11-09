@@ -1,0 +1,70 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# TryBack local data (photos, renders, db)
+.data/
+.data-test/
+# Probe matrix inputs/outputs (photos of consenting adults only; never commit)
+probe/people/
+probe/video/
+probe/out/
+probe/results.jsonl
+probe/REPORT.md
+probe/observed.json
+# Gate tuning (npm run tune): reports, labels, synthetic variants, threshold backups,
+# and the local CC0 mannequin self-test fixture
+probe/fixtures-local/
+probe/tune-report.md
+probe/tune-metrics.jsonl
+probe/tune-synth/
+probe/preflight-report.md
+probe/labels.json
+probe/labels.template.json
+probe/thresholds.backup-*.json
+!.env.example
+
+# extra local build dirs (NEXT_DIST_DIR) and data dirs (recorder/tests)
+/.next-*/
+/.data-*/
+
+# importer contact sheets (npm run catalog:import -- --sheet <png>)
+catalog-sheet*.png

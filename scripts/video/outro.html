@@ -1,0 +1,53 @@
+<!doctype html>
+<!--
+  Outro card for the demo video (1920×1080). scripts/record-demo.ts fills the double-brace
+  placeholders (credits that reflect this take, repo and demo URLs).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TryBack · outro card</title>
+<style>
+  :root { --bg:#f7f5f1; --ink:#1d1b18; --muted:#6b665e; --accent:#1f5f4a; --accent-soft:#e3efe9; --line:#e3ded5; --surface:#fff; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  .glow { position: absolute; left: -300px; bottom: -380px; width: 1200px; height: 1200px; border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, rgba(31,95,74,.14), rgba(31,95,74,0) 60%); }
+  .wrap { position: absolute; inset: 0; padding: 96px 150px 80px; display: flex; flex-direction: column; }
+  h1 { font-size: 132px; line-height: 1; font-weight: 750; letter-spacing: -.045em; }
+  .tag { margin-top: 24px; font-size: 56px; line-height: 1.12; font-weight: 650; letter-spacing: -.02em; color: var(--accent); }
+  .grid { margin-top: 72px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: 30px 32px; box-shadow: 0 6px 24px rgba(29,27,24,.06);
+    opacity: 0; animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+  .card:nth-child(2) { animation-delay: .25s; } .card:nth-child(3) { animation-delay: .5s; }
+  .k { font-size: 21px; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .v { margin-top: 12px; font-size: 34px; line-height: 1.2; font-weight: 650; }
+  .s { margin-top: 10px; font-size: 24px; line-height: 1.35; color: var(--muted); }
+  .links { margin-top: 56px; display: flex; gap: 48px; font-size: 32px; opacity: 0; animation: rise .7s ease forwards; animation-delay: .8s; }
+  .links b { color: var(--muted); font-weight: 600; margin-right: 12px; }
+  .foot { margin-top: auto; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; font-size: 25px; line-height: 1.4; color: var(--muted); }
+  .pill { display: inline-flex; align-items: center; gap: 12px; padding: 10px 22px; border-radius: 999px; font-size: 25px; font-weight: 650; }
+  .pill i { width: 11px; height: 11px; border-radius: 50%; background: currentColor; }
+  .pill.warn { background: #fbf0dc; color: #8a520a; }
+  .pill.ok { background: #e4f2e9; color: #24633e; }
+  .pill.info { background: #e5ecf8; color: #22468f; }
+  h1, .tag { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; } .tag { animation-delay: .12s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="wrap">
+    <h1>TryBack</h1>
+    <div class="tag">Try-on before purchase sells. TryBack keeps the sale.</div>
+    <div class="grid">
+      <div class="card"><div class="k">Try-on renders</div><div class="v">Clothsy AI by FabricVTON</div><div class="s">{{CLOTHSY_NOTE}}</div></div>
+      <div class="card"><div class="k">On-device vision</div><div class="v">MediaPipe</div><div class="s">Pose landmarks and garment segmentation, in the browser.</div></div>
+      <div class="card"><div class="k">Return-reason diagnosis</div><div class="v">Claude by Anthropic</div><div class="s">{{CLAUDE_NOTE}}</div></div>
+    </div>
+    <div class="links"><span><b>Code</b>{{REPO_URL}}</span><span><b>Live demo</b>{{DEMO_URL}}</span></div>
+    <div class="foot"><span class="pill {{MODE_TONE}}"><i></i>{{MODE_LABEL}}</span><div class="note">{{FOOT_NOTE}}</div></div>
+  </div>
+</body>
+</html>

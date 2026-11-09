@@ -1,0 +1,565 @@
+{
+  "$comment": "Source photos for public/catalog. Run `npx tsx scripts/import-catalog.ts` (npm run catalog:import) after editing. Paths are relative to this folder. Coordinates (crop, erase, include, patch, protect) are pixels of the stored source file. Families with \"source\": \"drawing\" keep the generated placeholder; \"manual\" means you placed photos in public/catalog yourself and nothing touches them.",
+  "version": 1,
+  "families": {
+    "wrap-dress": {
+      "source": "photo",
+      "primary": {
+        "file": "raw/wrap-dress/ai-wrap-dress-mustard-ghost.jpg",
+        "background": {
+          "mode": "auto"
+        },
+        "credit": {
+          "title": "Wrap dress, front on an invisible mannequin (AI-generated)",
+          "author": "TryBack team, made with an AI image generator",
+          "license": "AI-generated",
+          "note": "Synthetic product image created for this demo; it does not show a real product."
+        }
+      },
+      "alt": {
+        "file": "raw/wrap-dress/ai-wrap-dress-mustard-flat.jpg",
+        "background": {
+          "mode": "auto"
+        },
+        "credit": {
+          "title": "Wrap dress, flat lay (AI-generated)",
+          "author": "TryBack team, made with an AI image generator",
+          "license": "AI-generated",
+          "note": "Synthetic product image created for this demo; it does not show a real product."
+        }
+      }
+    },
+    "aline-midi": {
+      "source": "photo",
+      "primary": {
+        "file": "raw/aline-midi/ai-aline-midi-cobalt-ghost.jpg",
+        "background": {
+          "mode": "auto"
+        },
+        "credit": {
+          "title": "A-line midi dress, front on an invisible mannequin (AI-generated)",
+          "author": "TryBack team, made with an AI image generator",
+          "license": "AI-generated",
+          "note": "Synthetic product image created for this demo; it does not show a real product."
+        }
+      },
+      "alt": {
+        "file": "raw/aline-midi/ai-aline-midi-cobalt-flat.jpg",
+        "background": {
+          "mode": "auto"
+        },
+        "credit": {
+          "title": "A-line midi dress, flat lay (AI-generated)",
+          "author": "TryBack team, made with an AI image generator",
+          "license": "AI-generated",
+          "note": "Synthetic product image created for this demo; it does not show a real product."
+        }
+      }
+    },
+    "shirt-dress": {
+      "source": "photo",
+      "waist": 0.38,
+      "primary": {
+        "file": "raw/shirt-dress/halston-ultrasuede-shirtdress-front.jpg",
+        "crop": {
+          "left": 220,
+          "top": 60,
+          "width": 920,
+          "height": 1860
+        },
+        "background": {
+          "mode": "auto",
+          "tolerance": 6,
+          "lightnessWeight": 0.7,
+          "holeMaxFrac": 0.006
+        },
+        "erase": [
+          [
+            [
+              545,
+              60
+            ],
+            [
+              712,
+              60
+            ],
+            [
+              712,
+              140
+            ],
+            [
+              700,
+              148
+            ],
+            [
+              694,
+              180
+            ],
+            [
+              684,
+              212
+            ],
+            [
+              672,
+              240
+            ],
+            [
+              655,
+              255
+            ],
+            [
+              630,
+              265
+            ],
+            [
+              610,
+              265
+            ],
+            [
+              585,
+              230
+            ],
+            [
+              560,
+              190
+            ],
+            [
+              545,
+              175
+            ]
+          ],
+          [
+            [
+              280,
+              1226
+            ],
+            [
+              386,
+              1218
+            ],
+            [
+              380,
+              1300
+            ],
+            [
+              370,
+              1475
+            ],
+            [
+              280,
+              1475
+            ]
+          ],
+          [
+            [
+              1010,
+              1096
+            ],
+            [
+              1140,
+              1080
+            ],
+            [
+              1140,
+              1345
+            ],
+            [
+              1012,
+              1345
+            ]
+          ],
+          [
+            [
+              300,
+              1920
+            ],
+            [
+              300,
+              1818
+            ],
+            [
+              450,
+              1836
+            ],
+            [
+              550,
+              1844
+            ],
+            [
+              700,
+              1848
+            ],
+            [
+              750,
+              1842
+            ],
+            [
+              850,
+              1832
+            ],
+            [
+              950,
+              1822
+            ],
+            [
+              1060,
+              1800
+            ],
+            [
+              1140,
+              1800
+            ],
+            [
+              1140,
+              1920
+            ]
+          ]
+        ],
+        "largeScale": {
+          "keep": 0.5,
+          "radius": 0.06
+        },
+        "credit": {
+          "title": "Woman's Dusty Pink Ultrasuede Dress by Halston",
+          "author": "Missouri Historical Society (photograph); garment by Halston",
+          "license": "No Copyright - United States",
+          "licenseUrl": "https://rightsstatements.org/vocab/NoC-US/1.0/",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Woman%27s_Dusty_Pink_Ultrasuede_Dress_by_Halston_-_DPLA_-_903c0128ec895a2b8f6d689248560fb7_(page_1).jpg",
+          "note": "Missouri History Museum collection, object 1978-069-0013, shared on Wikimedia Commons via DPLA. Public domain in the United States (rights statement NoC-US). Mannequin removed."
+        }
+      }
+    },
+    "slip-dress": {
+      "source": "photo",
+      "primary": {
+        "file": "raw/slip-dress/ai-slip-dress-champagne-ghost.jpg",
+        "background": {
+          "mode": "auto"
+        },
+        "credit": {
+          "title": "Satin slip dress, front on an invisible mannequin (AI-generated)",
+          "author": "TryBack team, made with an AI image generator",
+          "license": "AI-generated",
+          "note": "Synthetic product image created for this demo; it does not show a real product."
+        }
+      },
+      "alt": {
+        "file": "raw/slip-dress/ai-slip-dress-champagne-flat.jpg",
+        "background": {
+          "mode": "auto"
+        },
+        "credit": {
+          "title": "Satin slip dress, flat lay (AI-generated)",
+          "author": "TryBack team, made with an AI image generator",
+          "license": "AI-generated",
+          "note": "Synthetic product image created for this demo; it does not show a real product."
+        }
+      }
+    },
+    "shift-dress": {
+      "source": "photo",
+      "waist": 0.33,
+      "primary": {
+        "file": "raw/shift-dress/bianchi-pink-shift-flat.jpg",
+        "background": {
+          "mode": "auto",
+          "tolerance": 10
+        },
+        "largeScale": {
+          "keep": 0.15,
+          "radius": 0.08
+        },
+        "credit": {
+          "title": "Women's Pink Dress by Bianchi Worn by Kathleen Walsh-Piper",
+          "author": "Missouri Historical Society (photograph); garment by the House of Bianchi",
+          "license": "No Copyright - United States",
+          "licenseUrl": "https://rightsstatements.org/vocab/NoC-US/1.0/",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Women%27s_Pink_Dress_by_Bianchi_Worn_by_Kathleen_Walsh-Piper_-_DPLA_-_cbd21bc60f31af383d270613a5fc1835_(page_1).jpg",
+          "note": "Missouri History Museum collection, object 2021-064-0021, shared on Wikimedia Commons via DPLA. Public domain in the United States (rights statement NoC-US). Sleeveless, like the catalogue's Shift Dress."
+        }
+      }
+    },
+    "linen-shirt": {
+      "source": "photo",
+      "waist": 0.45,
+      "primary": {
+        "file": "raw/linen-shirt/ai-linen-shirt-white-ghost.jpg",
+        "background": {
+          "mode": "flat",
+          "tolerance": 2.5,
+          "holeMaxFrac": 0.2,
+          "smooth": 3
+        },
+        "credit": {
+          "title": "Linen shirt, front on an invisible mannequin (AI-generated)",
+          "author": "TryBack team, made with an AI image generator",
+          "license": "AI-generated",
+          "note": "Synthetic product image created for this demo; it does not show a real product."
+        }
+      }
+    },
+    "knit-top": {
+      "source": "photo",
+      "primary": {
+        "file": "raw/knit-top/ai-knit-top-oat-ghost.jpg",
+        "background": {
+          "mode": "auto"
+        },
+        "credit": {
+          "title": "Ribbed knit top, front on an invisible mannequin (AI-generated)",
+          "author": "TryBack team, made with an AI image generator",
+          "license": "AI-generated",
+          "note": "Synthetic product image created for this demo; it does not show a real product."
+        }
+      }
+    },
+    "trench": {
+      "source": "photo",
+      "waist": 0.42,
+      "primary": {
+        "file": "raw/trench/friedrichs-belted-coat-front.jpg",
+        "crop": {
+          "left": 330,
+          "top": 210,
+          "width": 690,
+          "height": 1290
+        },
+        "background": {
+          "mode": "auto",
+          "tolerance": 5,
+          "lightnessWeight": 0.6,
+          "holeMaxFrac": 0.03,
+          "smooth": 4
+        },
+        "erase": [
+          [
+            [
+              560,
+              210
+            ],
+            [
+              705,
+              210
+            ],
+            [
+              705,
+              362
+            ],
+            [
+              560,
+              362
+            ]
+          ],
+          [
+            [
+              580,
+              355
+            ],
+            [
+              705,
+              355
+            ],
+            [
+              700,
+              380
+            ],
+            [
+              690,
+              420
+            ],
+            [
+              670,
+              470
+            ],
+            [
+              650,
+              510
+            ],
+            [
+              635,
+              540
+            ],
+            [
+              626,
+              585
+            ],
+            [
+              606,
+              585
+            ],
+            [
+              598,
+              530
+            ],
+            [
+              590,
+              480
+            ],
+            [
+              584,
+              430
+            ],
+            [
+              580,
+              380
+            ]
+          ],
+          [
+            [
+              330,
+              1500
+            ],
+            [
+              330,
+              1400
+            ],
+            [
+              470,
+              1402
+            ],
+            [
+              560,
+              1418
+            ],
+            [
+              600,
+              1432
+            ],
+            [
+              640,
+              1432
+            ],
+            [
+              700,
+              1425
+            ],
+            [
+              800,
+              1412
+            ],
+            [
+              880,
+              1390
+            ],
+            [
+              1020,
+              1390
+            ],
+            [
+              1020,
+              1500
+            ]
+          ]
+        ],
+        "include": [
+          [
+            [
+              586,
+              440
+            ],
+            [
+              598,
+              530
+            ],
+            [
+              612,
+              592
+            ],
+            [
+              628,
+              592
+            ],
+            [
+              648,
+              515
+            ],
+            [
+              672,
+              470
+            ],
+            [
+              694,
+              415
+            ],
+            [
+              703,
+              385
+            ],
+            [
+              718,
+              420
+            ],
+            [
+              738,
+              495
+            ],
+            [
+              815,
+              490
+            ],
+            [
+              840,
+              540
+            ],
+            [
+              852,
+              700
+            ],
+            [
+              845,
+              900
+            ],
+            [
+              835,
+              1100
+            ],
+            [
+              845,
+              1340
+            ],
+            [
+              450,
+              1340
+            ],
+            [
+              455,
+              1100
+            ],
+            [
+              440,
+              900
+            ],
+            [
+              455,
+              700
+            ],
+            [
+              478,
+              535
+            ],
+            [
+              535,
+              512
+            ],
+            [
+              565,
+              470
+            ]
+          ]
+        ],
+        "largeScale": {
+          "keep": 0.6,
+          "radius": 0.06
+        },
+        "credit": {
+          "title": "Hanns Friedrichs Mode 4",
+          "author": "Klaus Bärwinkel",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hanns_Friedrichs_Mode_4.jpg",
+          "note": "Trench-style belted coat by Hanns Friedrichs (1999), photographed in an exhibition at the Schumacher Museum, Hagen. Display stand and form removed."
+        }
+      }
+    }
+  }
+}

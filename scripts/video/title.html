@@ -1,0 +1,57 @@
+<!doctype html>
+<!--
+  Title card for the demo video (1920×1080). scripts/record-demo.ts fills the double-brace
+  placeholders and films this page in the same capture as the app. Open it directly in a
+  browser to preview (the placeholders then show as-is).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TryBack · title card</title>
+<style>
+  :root { --bg:#f7f5f1; --ink:#1d1b18; --muted:#6b665e; --accent:#1f5f4a; --accent-soft:#e3efe9; --line:#e3ded5; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  .glow { position: absolute; right: -260px; top: -200px; width: 1100px; height: 1100px; border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, rgba(31,95,74,.16), rgba(31,95,74,0) 62%); }
+  .wrap { position: absolute; inset: 0; padding: 92px 150px; display: flex; flex-direction: column; }
+  .event { font-size: 26px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  h1 { margin-top: 120px; font-size: 168px; line-height: .95; font-weight: 750; letter-spacing: -.045em; }
+  .tag { margin-top: 26px; font-size: 54px; line-height: 1.12; font-weight: 600; letter-spacing: -.02em; color: var(--accent); }
+  ol { list-style: none; padding: 0; margin-top: 64px; display: grid; gap: 22px; max-width: 1560px; }
+  li { display: flex; gap: 22px; align-items: baseline; font-size: 38px; line-height: 1.3; opacity: 0;
+    animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+  li b { font-weight: 650; }
+  li span.n { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--accent-soft); color: var(--accent);
+    font-size: 24px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; transform: translateY(2px); }
+  .foot { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 22px; font-size: 26px; color: var(--muted);
+    opacity: 0; animation: rise .7s ease forwards; animation-delay: .3s; }
+  .pill { display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px; border-radius: 999px; font-size: 28px; font-weight: 650; }
+  .pill i { width: 12px; height: 12px; border-radius: 50%; background: currentColor; }
+  .pill.warn { background: #fbf0dc; color: #8a520a; }
+  .pill.ok { background: #e4f2e9; color: #24633e; }
+  .pill.info { background: #e5ecf8; color: #22468f; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  h1, .tag, .event { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .tag { animation-delay: .15s; }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="wrap">
+    <div class="event">HackTheFashion Global'26 · Try-On Commerce</div>
+    <h1>TryBack</h1>
+    <div class="tag">Virtual try-on on the returns page, not the product page.</div>
+    <ol>
+      <li style="animation-delay: {{D1}}s"><span class="n">1</span><span><b>Returns are expensive</b> for fashion brands: shipping, handling, and a lost sale.</span></li>
+      <li style="animation-delay: {{D2}}s"><span class="n">2</span><span>Virtual try-on lives on the <b>product page</b>, where it helps sell.</span></li>
+      <li style="animation-delay: {{D3}}s"><span class="n">3</span><span>TryBack puts it on the <b>returns page</b>, while the item is still being worn.</span></li>
+    </ol>
+    <div class="foot">
+      <span class="pill {{MODE_TONE}}"><i></i>{{MODE_LABEL}}</span>
+      <span>{{FOOT_NOTE}}</span>
+    </div>
+  </div>
+</body>
+</html>

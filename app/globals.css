@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/*
+  TryBack design tokens. Use the Tailwind utilities generated from @theme below
+  (bg-bg, bg-surface, bg-surface-2, text-ink, text-muted, border-line, bg-accent,
+  text-accent, text-accent-ink, bg-accent-soft, text-ok, text-warn, text-bad, text-info …)
+  instead of raw hex values so light/dark stay consistent.
+*/
+:root {
+  --bg: #f7f5f1;
+  --surface: #ffffff;
+  --surface-2: #f0ede7;
+  --ink: #1d1b18;
+  --muted: #6b665e;
+  --line: #e3ded5;
+  --accent: #1f5f4a;
+  --accent-ink: #ffffff;
+  --accent-soft: #e3efe9;
+  --ok: #2f7d4f;
+  --ok-soft: #e4f2e9;
+  --warn: #a8650f;
+  --warn-soft: #fbf0dc;
+  --bad: #b4413c;
+  --bad-soft: #f8e4e2;
+  --info: #2851a3;
+  --info-soft: #e5ecf8;
+  --shadow: 0 1px 2px rgb(29 27 24 / 0.06), 0 6px 24px rgb(29 27 24 / 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12110f;
+    --surface: #1b1a17;
+    --surface-2: #24221e;
+    --ink: #f2efe9;
+    --muted: #a39d93;
+    --line: #34312b;
+    --accent: #6cc3a0;
+    --accent-ink: #0e1f18;
+    --accent-soft: #1d3329;
+    --ok: #6cc38f;
+    --ok-soft: #1c3124;
+    --warn: #e0a74e;
+    --warn-soft: #3a2c15;
+    --bad: #e57f79;
+    --bad-soft: #3b1f1d;
+    --info: #8fb0ef;
+    --info-soft: #1d2740;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 6px 24px rgb(0 0 0 / 0.35);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #12110f;
+  --surface: #1b1a17;
+  --surface-2: #24221e;
+  --ink: #f2efe9;
+  --muted: #a39d93;
+  --line: #34312b;
+  --accent: #6cc3a0;
+  --accent-ink: #0e1f18;
+  --accent-soft: #1d3329;
+  --ok: #6cc38f;
+  --ok-soft: #1c3124;
+  --warn: #e0a74e;
+  --warn-soft: #3a2c15;
+  --bad: #e57f79;
+  --bad-soft: #3b1f1d;
+  --info: #8fb0ef;
+  --info-soft: #1d2740;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 6px 24px rgb(0 0 0 / 0.35);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --shadow-card: var(--shadow);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Skeleton shimmer for render cards */
+@keyframes tb-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.tb-skeleton {
+  background: linear-gradient(90deg, var(--surface-2) 25%, var(--line) 50%, var(--surface-2) 75%);
+  background-size: 200% 100%;
+  animation: tb-shimmer 1.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tb-skeleton { animation: none; }
+}
+
+.tabular { font-variant-numeric: tabular-nums; }

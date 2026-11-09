@@ -1,0 +1,45 @@
+# Keep the build context small and free of secrets and personal data.
+
+# Dependencies and build output (rebuilt inside the image for Linux)
+node_modules
+.next
+.next-*
+out
+build
+coverage
+*.tsbuildinfo
+next-env.d.ts
+
+# Secrets: env files are runtime-only (fly secrets / Render env / --env-file)
+.env*
+*.pem
+*.key
+
+# Local data: the JSON store, shopper photos, render cache
+.data
+.data-*
+.data/**
+
+# Probe matrix: photos of team members and their renders
+probe
+
+# Raw garment photos (the processed shots live in public/catalog)
+assets-src/catalog/raw
+
+# Repo and tooling
+.git
+.github
+.vscode
+.idea
+.claude
+.DS_Store
+npm-debug.log*
+*.log
+
+# Not needed in the image
+tests
+docs
+Dockerfile
+.dockerignore
+fly.toml
+render.yaml
